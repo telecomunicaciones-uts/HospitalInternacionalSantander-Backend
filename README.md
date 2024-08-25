@@ -38,6 +38,7 @@ The International Hospital of Santander has a highly qualified management team, 
 - **Chief Financial Officer**: In charge of the hospital's financial planning and management, ensuring the economic viability of operations and investment in infrastructure and technology.
 
 ![Company database](DB.jpg)
+![Company database](DB2.jpg)
 
 
 
