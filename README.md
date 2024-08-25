@@ -1,4 +1,4 @@
-![Company Logo](logo.png)
+![Company Logo](logo.jpg)
 
 # Company Description
 
