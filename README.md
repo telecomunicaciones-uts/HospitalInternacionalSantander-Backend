@@ -40,6 +40,9 @@ The International Hospital of Santander has a highly qualified management team, 
 ![Company database](DB.jpg)
 ![Company database](DB2.jpg)
 
+# **RUTAS DE LA API**
+
+
 1\. Register a new patient: 
 
 Route: POST http://localhost:4000/api/pacientes
@@ -408,7 +411,7 @@ JSON
 
 }
 
-
+![Company database](Rutas.jpg)
 
 ## Developers
 - **Melissa Sanabria**
