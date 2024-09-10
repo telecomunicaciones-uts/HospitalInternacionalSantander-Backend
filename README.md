@@ -420,6 +420,9 @@ JSON
 - **Cielo Mariño**
 
 
-## VIDEO PARCIAL 1
+## VIDEO CREATE ROUTES 
+
+Hello everyone! In today's video, we'll learn how to implement GET routes in Visual Studio Code to interact with an API. We'll see how to make requests and retrieve data easily. Join me as we explore the power of APIs together!
+
 
 https://youtu.be/-ct6pHWOa7Q
