@@ -418,3 +418,8 @@ JSON
 - **Elkin Ortega**
 - **Madwin Palacio**
 - **Cielo Mariño**
+
+
+## VIDEO PARCIAL 1
+
+https://youtu.be/-ct6pHWOa7Q
