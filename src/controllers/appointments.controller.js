@@ -1,19 +1,27 @@
-// Ejemplo de datos de citas
-const appointments = [
-    { id: "1", doctorId: "1", patientId: "1", date: "2024-08-15", time: "10:00" },
-    { id: "2", doctorId: "2", patientId: "2", date: "2024-08-16", time: "11:00" }
-];
+import { pool } from '../bd.js'; // Asegúrate de importar la conexión a la base de datos
 
 // Obtener todas las citas
-export const getAllAppointments = (req, res) => {
-    res.json(appointments);
+export const getAllAppointments = async (req, res) => {
+    try {
+        const [rows] = await pool.query('SELECT * FROM appointment_patient'); // Consulta a la tabla appointment_patient
+        res.json(rows);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Error al obtener las citas' });
+    }
 };
 
 // Obtener una cita por ID
-export const getAppointmentById = (req, res) => {
-    const appointment = appointments.find(app => app.id === req.params.id);
-    if (!appointment) {
-        return res.status(404).json({ message: 'Appointment not found' });
+export const getAppointmentById = async (req, res) => {
+    const { id } = req.params; // Obtener el ID de la URL
+    try {
+        const [rows] = await pool.query('SELECT * FROM appointment_patient WHERE id = ?', [id]); // Ajustar según el campo ID de tu tabla
+        if (rows.length === 0) {
+            return res.status(404).json({ message: 'Cita no encontrada' });
+        }
+        res.json(rows[0]); // Devolver la cita encontrada
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Error al obtener la cita' });
     }
-    res.json(appointment);
 };
