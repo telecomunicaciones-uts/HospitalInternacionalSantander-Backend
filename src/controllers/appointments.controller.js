@@ -15,7 +15,7 @@ export const getAllAppointments = async (req, res) => {
 export const getAppointmentById = async (req, res) => {
     const { id } = req.params; // Obtener el ID de la URL
     try {
-        const [rows] = await pool.query('SELECT * FROM appointment_patient WHERE id = ?', [id]); // Ajustar según el campo ID de tu tabla
+        const [rows] = await pool.query('SELECT * FROM appointment_patient WHERE Id_Appintment = ?', [id]); // Ajustar según el campo ID de tu tabla
         if (rows.length === 0) {
             return res.status(404).json({ message: 'Cita no encontrada' });
         }

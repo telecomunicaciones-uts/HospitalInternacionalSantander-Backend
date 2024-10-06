@@ -15,7 +15,7 @@ export const getAllPatients = async (req, res) => {
 export const getPatientById = async (req, res) => {
     const { id } = req.params; // Obtener el ID de la URL
     try {
-        const [rows] = await pool.query('SELECT * FROM patient WHERE id = ?', [id]); // Ajustar según el campo ID de tu tabla
+        const [rows] = await pool.query('SELECT * FROM patient WHERE Id_Patient = ?', [id]); // Ajustar según el campo ID de tu tabla
         if (rows.length === 0) {
             return res.status(404).json({ message: 'Paciente no encontrado' });
         }
