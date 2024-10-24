@@ -2,6 +2,7 @@ import express from 'express';
 import doctorsRoutes from './routes/doctors.routes.js';
 import patientsRoutes from './routes/patients.routes.js';
 import appointmentsRoutes from './routes/appointments.routes.js';
+import historyPatientRoutes from './routes/history_patient.routes.js';
 
 const app = express();
 
@@ -12,6 +13,7 @@ app.use(express.json());
 app.use('/api/doctors', doctorsRoutes);
 app.use('/api/patients', patientsRoutes);
 app.use('/api/appointments', appointmentsRoutes);
+
 
 // Manejar rutas no encontradas
 app.use((req, res) => {
