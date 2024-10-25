@@ -40,376 +40,41 @@ The International Hospital of Santander has a highly qualified management team, 
 ![Company database](DB.jpg)
 ![Company database](DB2.jpg)
 
-# **RUTAS DE LA API**
+# **ROUETES OF API**
 
+# API Route Descriptions
 
-1\. Register a new patient: 
+### Doctors
 
-Route: POST http://localhost:4000/api/pacientes
+1. **All Doctors:** `http://localhost:4000/doctors`
+   - **What it does:** This route allows you to get the complete list of doctors registered in the system.
+   - **What it responds:** Returns an array of JSON objects, where each object represents a doctor and includes details such as doctor ID, name, specialty, phone number, email, among other data.
 
-Description: This route allows a new patient to be registered in the hospital management system.
+2. **Doctor by ID:** `http://localhost:4000/doctors/1`
+   - **What it does:** This route allows you to get detailed information about a specific doctor using their ID.
+   - **What it responds:** Returns a JSON object with the details of the doctor with the specified ID, including information such as name, specialty, phone number, and email.
 
-Parameters:
+### Patients
 
-name: (String) Full name of the patient.
+1. **All Patients:** `http://localhost:4000/patients`
+   - **What it does:** This route provides a list of all patients registered in the system.
+   - **What it responds:** Returns an array of JSON objects, where each object represents a patient and includes information such as patient ID, first name, last name, phone number, email, among other details.
 
-ID: (String) Patient ID or ID number.
+2. **Patient by ID:** `http://localhost:4000/patients/1`
+   - **What it does:** This route allows you to get detailed information about a particular patient using their ID.
+   - **What it responds:** Returns a JSON object with the details of the patient with the specified ID, such as first name, last name, phone number, and email.
 
-fecha\_nacimiento: (String) Date of birth in YYYY-MM-DD format.
+### Appointments
 
-Phone: (String) Contact phone number.
+1. **All Appointments:** `http://localhost:4000/appointments`
+   - **What it does:** This route allows you to get a complete list of all appointments registered in the system.
+   - **What it responds:** Returns an array of JSON objects, where each object represents an appointment and includes information such as appointment ID, date and time, status (pending or completed), and the reason for the consultation.
 
-address: (String) Residence address.
+2. **Appointment by ID:** `http://localhost:4000/appointments/1`
+   - **What it does:** This route allows you to get detailed information about a specific appointment using its ID.
+   - **What it responds:** Returns a JSON object with the details of the appointment with the specified ID, such as the date and time of the appointment, status (pending or completed), and the reason for the consultation.
 
-email: (String) Patient email (optional).
 
-Sample request:
-
-JSON
-
-POST http://localhost:4000/api/pacientes
-
-{
-
-`  `"name": "Juan Pérez",
-
-`  `"cedula": "123456789",
-
-`  `"fecha\_nacimiento": "1985-05-15",
-
-`  `"telephone": "555-1234",
-
-`  `"address": "Calle Falsa 123",
-
-`  `"email": "juan.perez@example.com"
-
-}
-
-
-2\. Update a patient's information:
-
-Route: PUT http://localhost:4000/api/pacientes/:id
-
-Description: This path allows you to update the information of an existing patient in the system.
-
-Parameters: :id: (String) ID of the patient you want to update. This ID is obtained by registering the patient.
-
-Parameters (optional):
-
-name: (String) New name of the patient.
-
-phone: (String) New phone number.
-
-address: (String) New address.
-
-email: (String) New email.
-
-Sample request:
-
-JSON
-
-Put http://localhost:4000/api/pacientes/1
-
-{
-
-`  `"telephone": "555-5678",
-
-`  `"Address": "Avenida Siempre Viva 742"
-
-}
-
-
-3\. Eliminate a patient:
-
-Path: DELETE http://localhost:4000/api/pacientes/:id
-
-Description: This path allows you to remove a patient from the system.
-
-Parameters: :id: (String) ID of the patient you want to delete.
-
-
-4\. Schedule a new consultation: 
-
-Route: POST http://localhost:4000/api/consultas
-
-Description: This route allows you to schedule a new medical consultation for a patient.
-
-Parameters:
-
-paciente\_id: (String) ID of the patient requesting the appointment.
-
-medico\_id: (String) ID of the doctor who will attend the consultation.
-
-Date: (String) Date of the query in YYYY-MM-DD format.
-
-time: (String) Time of the query in HH:MM format.
-
-Sample request:
-
-JSON
-
-POST http://localhost:4000/api/consultas
-
-{
-
-`  `"paciente\_id": "1",
-
-`  `"medico\_id": "10",
-
-`  `"date": "2024-09-15",
-
-`  `"Time": "10:30"
-
-}
-
-
-
-
-
-
-
-
-
-
-5\. Update an existing query
-
-Route: PUT http://localhost:4000/api/consultas/:id
-
-Description: This path allows you to update the details of an existing medical visit.
-
-Parameters: :id: (String) ID of the query you want to update.
-
-Parameters (optional):
-
-date: (String) New date of the query.
-
-Time: (String) New time of the query.
-
-Doctor \_id: (String) New Physician ID.
-
-Sample request:
-
-JSON
-
-PUT http://localhost:4000/api/consultas/1
-
-{
-
-`  `"date": "2024-09-16",
-
-`  `"Time": "11:00"
-
-}
-
-
-
-6\. Register a new payment: 
-
-Route: POST http://localhost:4000/api/pagos
-
-Description: This route allows you to record a new payment made by a patient.
-
-Parameters:
-
-paciente\_id: (String) ID of the patient making the payment.
-
-amount: (Number) Payment amount.
-
-metodo\_pago: (String) Payment method (e.g. "card", "cash").
-
-Date: (String) Date of payment in YYYY-MM-DD format.
-
-Sample request:
-
-JSON
-
-POST http://localhost:4000/api/pagos
-
-{
-
-`  `"paciente\_id": "1",
-
-`  `"amount": 150.00,
-
-`  `"metodo\_pago": "card",
-
-`  `"Date": "2024-08-31"
-
-}
-
-
-
-
-7\. Add a new medication: 
-
-Route: POST http://localhost:4000/api/medicamentos
-
-Description: This path allows a new drug to be added to the hospital database.
-
-Parameters:
-
-Name: (String) Name of the medicine.
-
-dosage: (String) Recommended dose.
-
-Description: (String) Medication description (optional).
-
-efectos\_secundarios: (String) Possible side effects (optional).
-
-Sample request:
-
-JSON
-
-POST http://localhost:4000/api/medicamentos
-
-{
-
-`  `"name": "Paracetamol",
-
-`  `"dose": "500 mg",
-
-`  `"description": "Analgesic and antipyretic.",
-
-`  `"efectos\_secundarios": "Nausea, rashes."
-
-}
-
-
-
-8\. Obtain consultation history by ID: 
-
-Path: GET /api/queries/cedula/:cedula
-
-Description: This route allows you to obtain the medical consultation history of a specific patient, using their ID number.
-
-Parameters:
-
-:cedula: (String) Patient ID number.
-
-id: (String) Unique ID of the query.
-
-Date: (String) Date of the query in YYYY-MM-DD format.
-
-time: (String) Time of the query in HH:MM format.
-
-doctor: (String) Name of the doctor who attended the consultation.
-
-diagnosis: (String) Diagnosis made during the consultation.
-
-Treatment: (String) Prescribed treatment.
-
-Sample request:
-
-GET /api/queries/cedula/123456789
-
-Sample response:
-
-JSON
-
-[
-
-`  `{
-
-`    `"id": "1",
-
-`    `"date": "2024-08-15",
-
-`    `"time": "10:00",
-
-`    `"doctor": "Dr. Juan Gómez",
-
-`    `"diagnosis": "Flu",
-
-`    `"treatment": "rest and medication"
-
-`  `},
-
-`  `{
-
-`    `"id": "2",
-
-`    `"date": "2024-07-20",
-
-`    `"time": "14:30",
-
-`    `"doctor": "Dr. María Pérez"
-
-`    `"diagnosis": "Back pain",
-
-`    `"treatment": "Physiotherapy and analgesics"
-
-`  `}
-
-]
-
-
-9\. Get information from a specific doctor:
-
-Path:GET /api/medicos/:id
-
-Description: This route allows you to obtain detailed information about a specific doctor, such as their specialty, experience, and hours of operation.
-
-Parameters:
-
-:id: (String) Unique ID of the doctor.
-
-Name: (String) Doctor's full name.
-
-Specialty: (String) The doctor's medical specialty.
-
-Experience: (Number) Years of experience of the physician.
-
-Hours: (Array) Arrangement with the hours of operation, where each object contains:
-
-day: (String) Day of the week.
-
-hours: (String) Range of hours of service in HH:MM - HH:MM format.
-
-Sample request:
-
-GET /api/medicos/10
-
-Sample response:
-
-JSON
-
-{
-
-`  `"name": "Dr. Juan Gómez",
-
-`  `"specialty": "Internal Medicine",
-
-`  `"experience": 15,
-
-`  `"Schedule": [
-
-`    `{
-
-`      `"day": "Monday",
-
-`      `"hours": "08:00 - 12:00"
-
-`    `},
-
-`    `{
-
-`      `"day": "Wednesday",
-
-`      `"Hours": "14:00 - 18:00"
-
-`    `},
-
-`    `{
-
-`      `"day": "Friday",
-
-`      `"hours": "08:00 - 12:00"
-
-`    `}
-
-`  `]
-
-}
 
 ![Company database](Rutas.jpg)
 
