@@ -144,12 +144,24 @@ The frontend was developed using **React Native**, which allows the application 
 This complete workflow, from backend to frontend, ensures that the application is easy to use, with a clear architecture and an efficient data flow, thus guaranteeing a satisfying experience for users and easy system management for developers.
 
 ![Api Utsalud](Api.jpg)
+# Video Introduction
 
+Welcome to this video! Here, you'll see how our healthcare management app works, from backend to frontend, and watch it run in real-time.
+
+First, we'll cover the **backend**—how we used **Node.js** and **Express** for managing doctors, patients, and appointments, along with **XAMPP** for the **MySQL** database.
+
+Next, we'll look at the **frontend** built with **React Native**, showcasing the app's simple interface and smooth navigation.
+
+Finally, you'll see a **real-time demo**, showing how everything connects seamlessly to create a complete solution.
+
+Enjoy the video!
+
+https://youtu.be/n1w4rHevnKU
 
 ## Developers
 - **Melissa Sanabria**
 - **Elkin Ortega**
-- **Madwin Palacio**
+- **Madwin Zapata Palacio**
 - **Cielo Mariño**
 
 
