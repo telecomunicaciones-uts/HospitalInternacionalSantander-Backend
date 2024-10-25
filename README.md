@@ -74,6 +74,8 @@ The International Hospital of Santander has a highly qualified management team, 
    - **What it does:** This route allows you to get detailed information about a specific appointment using its ID.
    - **What it responds:** Returns a JSON object with the details of the appointment with the specified ID, such as the date and time of the appointment, status (pending or completed), and the reason for the consultation.
 
+![Company database](Rutas.jpg)
+
 ## VIDEO CREATE ROUTES 
 
 Hello everyone! In today's video, we'll learn how to implement GET routes in Visual Studio Code to interact with an API. We'll see how to make requests and retrieve data easily. Join me as we explore the power of APIs together!
@@ -143,7 +145,6 @@ This complete workflow, from backend to frontend, ensures that the application i
 
 
 
-![Company database](Rutas.jpg)
 
 ## Developers
 - **Melissa Sanabria**
